@@ -1,12 +1,30 @@
---µ¥ÀÌÅÍ±¸Á¶
-desc emp; 
-select * from emp;
-SELECT ename,job from emp;
---Å×ÀÌºí±¸Á¶
-desc professor;
-SELECT * FROM professor;
-SELECT name, 'good morning~~!' "¹ÚÁø¿µ" from professor;
-SELECT  dname, 'is''s deptno:'"¹ÚÁø¿µ",deptno "dname and deptono" from dept;
-SELECT  dname, 'is''s deptno:'|| deptno "dname and deptono" from dept;
-select dname, q'[, it 's deptno :]', deptno "DNAME AND DEPTNO" from dept;
-select profno "±³¼ö´Ô¹øÈ£" , name"±³¼ö´ÔÀÌ¸§" , pay"±³¼ö´Ôµ·" from professor ;
+--ï¿½ï¿½ï¿½ï¿½1
+SELECT * from student;
+SElECT NAME ||'''s ID : '||id||','||'WeiGHT is '||WEight||'KG' "ID AND WEIGHT" from student;
+--ï¿½ï¿½ï¿½ï¿½2
+SElECt * from emp;
+select ename||'('||job||')'||', '||ename||''''||job||'''' from emp;
+--ï¿½ï¿½ï¿½ï¿½3
+SELECT ename||'''s sal is '||'$'||sal from emp;
+--ï¿½ï¿½ï¿½ï¿½4
+SELECT ename , sal from emp WHere empno = 7900;
+SELECT ename , sal from emp WHere sal < 1000;
+--ï¿½ï¿½ï¿½ï¿½5
+SELECT ename , sal , sal*1.1 ,deptno from emp where deptno = 10;
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+SELECT ename ,hiredate FROM emp WHERE hiredate >= '81/12/25';
+SELECT ename ,hiredate FROM emp WHERE hiredate <= '81/12/25';
+SELECT empno,ename ,sal FROM emp WHERE sal between 2000 and 3000;
+SELECT empno,ename ,sal FROM emp WHERE sal >= 2000 and sal <=3000;
+SELECT empno,ename,deptno from emp WHERE deptno in(10,20);
+SELECT empno,ename,deptno from emp WHERE ename in('FORD','KING');
+SELECT empno, ename, sal from emp WHERE sal like '1%';
+SELECT empno, ename, sal from emp WHERE ename like 'A%';
+SELECT empno, ename, hiredate from emp WHERE ename like '_A%';
+SELECT ename, hiredate, sal FROM emp WHERE hiredate > '82-01-01' and sal >=1300;  
+SELECT ename, hiredate, sal FROM emp WHERE hiredate > '82-01-01' or sal >=1300;  
+SELECT * from student;
+SELECT Studno , name , deptno1 , 1 FROM Student WHERE deptno1 = 101
+UNION
+SELECT profno , name , deptno,2 FROM professor WHERE deptno = 101;
+
